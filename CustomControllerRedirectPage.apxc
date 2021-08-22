@@ -1,0 +1,10 @@
+global with sharing class CustomControllerRedirectPage {
+    @AuraEnabled(cacheable=false)
+    /**
+ 	* This metod gets a link from a castom field by Id.
+    */
+    global static Shop__c  sd(String accountId) {
+         List<Shop__c> webSiteLink = [SELECT WebSiteLink__c FROM Shop__c WHERE Id = :accountId ];
+            return webSiteLink[0];
+    }
+}
